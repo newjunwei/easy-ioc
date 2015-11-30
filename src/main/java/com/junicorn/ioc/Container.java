@@ -59,5 +59,8 @@ public interface Container {
 	 */
 	public Set<String> getBeanNames();
 	
+	/**
+	 * 初始化装配
+	 */
 	public void initWrited();
 }

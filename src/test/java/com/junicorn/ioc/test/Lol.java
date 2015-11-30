@@ -4,7 +4,7 @@ import com.junicorn.ioc.annotation.AutoWrited;
 
 public class Lol {
 
-	@AutoWrited(name="aaa")
+	@AutoWrited
 	private FaceService faceService;
 	
 	public Lol() {

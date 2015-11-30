@@ -1,8 +1,8 @@
 package com.junicorn.ioc.test;
 
-import com.junicorn.ioc.annotation.Service;
+import com.junicorn.ioc.annotation.Component;
 
-@Service
+@Component
 public class FaceService {
 
 	public void buy(String name, int money){
