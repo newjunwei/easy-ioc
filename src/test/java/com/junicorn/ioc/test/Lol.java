@@ -7,10 +7,7 @@ public class Lol {
 	@AutoWrited
 	private FaceService faceService;
 	
-	public Lol() {
-	}
-	
-	public void work(){
+	public void work() {
 		faceService.buy("剑圣", 5);
 	}
 
