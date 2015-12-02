@@ -109,6 +109,10 @@ public class SampleContainer implements Container {
 		}
 	}
 
+	/**
+	 * 注入对象
+	 * @param object
+	 */
 	public void injection(Object object) {
 		// 所有字段
 	    try {
@@ -121,27 +125,24 @@ public class SampleContainer implements Container {
 			    	// 要注入的字段
 			        Object autoWritedField = null;
 			        
-			    	// 指定装配到哪个class
-			        if(autoWrited.value() == Class.class){
-		        		String name = autoWrited.name();
-		        		if(!name.equals("")){
-		        			autoWritedField = beanKeys.get(name);
-		        			if (null == autoWritedField) {
-					            throw new RuntimeException("Unable to load " + name);
-					        }
-		        		} else {
-		        			autoWritedField = recursiveAssembly(field.getType());
+			        String name = autoWrited.name();
+	        		if(!name.equals("")){
+	        			autoWritedField = beanKeys.get(name);
+	        			if (null == autoWritedField) {
+				            throw new RuntimeException("Unable to load " + name);
+				        }
+	        		} else {
+	        			if(autoWrited.value() == Class.class){
+	        				autoWritedField = recursiveAssembly(field.getType());
+				        } else {
+				        	// 指定装配的类
+				    		autoWritedField = this.getBean(autoWrited.value());
+				            if (null == autoWritedField) {
+				            	autoWritedField = recursiveAssembly(autoWrited.value());
+				            }
 						}
-			        }
-			        
-			    	if(autoWrited.value() != Class.class){
-			    		// 指定装配的类
-			    		autoWritedField = this.getBean(autoWrited.value());
-			            if (null == autoWritedField) {
-			            	autoWritedField = recursiveAssembly(autoWrited.value());
-			            }
-			    	}
-			    	
+					}
+	        		
 			        if (null == autoWritedField) {
 			            throw new RuntimeException("Unable to load " + field.getType().getCanonicalName());
 			        }
