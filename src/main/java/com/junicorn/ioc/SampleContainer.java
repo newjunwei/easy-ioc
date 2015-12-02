@@ -127,7 +127,10 @@ public class SampleContainer implements Container {
 			        
 			        String name = autoWrited.name();
 	        		if(!name.equals("")){
-	        			autoWritedField = beanKeys.get(name);
+	        			String className = beanKeys.get(name);
+	        			if(null != className && !className.equals("")){
+	        				autoWritedField = beans.get(className);
+	        			}
 	        			if (null == autoWritedField) {
 				            throw new RuntimeException("Unable to load " + name);
 				        }

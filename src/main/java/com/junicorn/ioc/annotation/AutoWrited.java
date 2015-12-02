@@ -14,5 +14,9 @@ public @interface AutoWrited {
 	 */
     Class<?> value() default Class.class;
 	
+    /**
+     * @return	bean的名称
+     */
     String name() default "";
+    
 }
