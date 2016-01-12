@@ -7,7 +7,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
-import com.junicorn.ioc.annotation.AutoWrited;
+import com.junicorn.ioc.annotation.Autowired;
 import com.junicorn.ioc.util.ReflectUtil;
 
 /**
@@ -119,7 +119,7 @@ public class SampleContainer implements Container {
 			Field[] fields = object.getClass().getDeclaredFields();
 			for (Field field : fields) {
 				// 需要注入的字段
-				AutoWrited autoWrited = field.getAnnotation(AutoWrited.class);
+				Autowired autoWrited = field.getAnnotation(Autowired.class);
 			    if (null != autoWrited) {
 			    	
 			    	// 要注入的字段

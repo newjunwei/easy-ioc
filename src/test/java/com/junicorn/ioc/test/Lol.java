@@ -1,10 +1,10 @@
 package com.junicorn.ioc.test;
 
-import com.junicorn.ioc.annotation.AutoWrited;
+import com.junicorn.ioc.annotation.Autowired;
 
 public class Lol {
 
-	@AutoWrited
+	@Autowired
 	private FaceService faceService;
 	
 	public void work() {
