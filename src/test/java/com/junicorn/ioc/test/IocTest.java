@@ -36,8 +36,8 @@ public class IocTest {
 	}
 	
 	public static void main(String[] args) {
-//		baseTest();
-//		iocClassTest();
+		baseTest();
+		iocClassTest();
 		iocNameTest();
 	}
 	
